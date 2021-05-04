@@ -56,10 +56,12 @@ To watch for changes on pug files during development and generate static html on
 $ npm run pug-watch
 ```
 
-To generate static html into `src/public` folder only, run:
+### Docs
+
+To generate static html into `docs` folder for Github Pages, run before commiting code:
 
 ```
-$ npm run pug-output
+$ npm run docs-output
 ```
 
 ### Full development mode
