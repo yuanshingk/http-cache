@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "concurrently \"npm run dev\" \"npm run pug-watch\" \"npm run ui\"",
+    "dev": "concurrently \"npm run serve\" \"npm run pug-watch\" \"npm run ui\"",
     "serve": "nodemon --inspect=0.0.0.0:30003 ./src/index.js",
     "ui": "browser-sync start --config bs-config.js",
     "pug-watch": "pug -w ./src/views -o ./src/public -P",
-    "pug-output": "pug ./src/views -o ./src/public -P"
+    "docs-output": "pug ./src/views -o ./docs -P && copyfiles -u 2 ./src/public/**/*.* ./docs"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +16,7 @@
   "devDependencies": {
     "browser-sync": "^2.26.14",
     "concurrently": "^6.0.2",
+    "copyfiles": "^2.4.1",
     "nodemon": "^2.0.7"
   },
   "dependencies": {

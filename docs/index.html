@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="script.js"></script>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" type="image/png" href="assets/favicon-16x16.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+      async function onSend() {
+        let inputId = document.getElementsByName('data-id')[0].value;
+        let data = await getData(inputId);
+      }
+    </script>
+  </head>
+  <body>
+    <div>
+      <h1 class="banner">HTTP-Cache</h1>
+      <div>
+        <p>A demo project WIP</p>
+      </div>
+      <div> <span class="label">GET api/data/</span>
+        <input type="text" name="data-id" placeholder="Enter value">
+        <button onclick="onSend()">Send</button>
+      </div>
+    </div>
+  </body>
+</html>
