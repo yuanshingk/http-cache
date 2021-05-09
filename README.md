@@ -1,3 +1,5 @@
+![Docker Publish](https://github.com/yuanshingk/http-cache/actions/workflows/main.yml/badge.svg)
+
 # http-cache
 
 ## Description
