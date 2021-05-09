@@ -21,3 +21,13 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
     console.log(`Listening to requests on http://localhost:${port}`);
 });
+
+const terminateHandler = (signal) => {
+    console.log(signal, 'received');
+    // graceful shutdown code
+    process.exit(0);
+};
+
+['SIGTERM', 'SIGINT', 'SIGQUIT'].forEach((signal) => {
+    process.on(signal, terminateHandler);
+});

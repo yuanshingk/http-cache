@@ -76,3 +76,20 @@ Run the following before commiting code:
 ```
 $ npm run docs-output
 ```
+
+## Running in Docker
+
+You can choose to run this application using docker.
+Build the docker image:
+
+```
+$ docker build -t http-cache .
+```
+
+Run the image:
+
+```
+$ docker run -it -p 8080:8080 http-cache
+```
+
+Browse to http://localhost:8080.
