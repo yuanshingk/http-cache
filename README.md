@@ -1,10 +1,8 @@
-![Docker Publish](https://github.com/yuanshingk/http-cache/actions/workflows/main.yml/badge.svg)
-
 # http-cache
 
-## Description
+Github page: https://yuanshingk.github.io/http-cache/
 
-TODO: update description
+![Docker Publish](https://github.com/yuanshingk/http-cache/actions/workflows/main.yml/badge.svg)
 
 ## Local Startup
 
