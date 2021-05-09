@@ -11,7 +11,8 @@
     <script>
       async function onSend() {
         let inputId = document.getElementsByName('data-id')[0].value;
-        let data = await getData('http://localhost:30001', inputId);
+        let data = await getData('https://http-cache.azurewebsites.net/', inputId);
+        document.getElementById('data').innerText = JSON.stringify(data, null, 4);
       }
     </script>
   </head>
@@ -20,11 +21,16 @@
       <h1 class="banner">HTTP-Cache</h1>
       <div>
         <p>A demo project WIP</p>
-        <p>BaseUrl: http://localhost:30001</p>
+        <p>BaseUrl: https://http-cache.azurewebsites.net/</p>
       </div>
       <div> <span class="label">GET api/data/</span>
         <input type="text" name="data-id" placeholder="Enter value">
         <button onclick="onSend()">Send</button>
+      </div>
+      <div> 
+        <p>
+          <pre id="data"></pre>
+        </p>
       </div>
     </div>
   </body>

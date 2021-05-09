@@ -12,6 +12,7 @@ html
       async function onSend() {
         let inputId = document.getElementsByName('data-id')[0].value;
         let data = await getData('#{baseUrl}', inputId);
+        document.getElementById('data').innerText = JSON.stringify(data, null, 4);
       }
   body
     div
@@ -23,3 +24,7 @@ html
         span.label GET api/data/
         input(type='text' name='data-id' placeholder='Enter value')
         button(type=button onclick='onSend()') Send
+      div 
+        p
+          pre#data
+

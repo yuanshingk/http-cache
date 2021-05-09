@@ -2,7 +2,17 @@
 
 Github page: https://yuanshingk.github.io/http-cache/
 
-![Docker Publish](https://github.com/yuanshingk/http-cache/actions/workflows/main.yml/badge.svg)
+![Publish and Deploy](https://github.com/yuanshingk/http-cache/actions/workflows/main.yml/badge.svg)
+
+# Table of Content
+
+-   [Local Startup](#local-startup)
+-   [Local Development](#local-development)
+    -   [Starting in Monitoring Mode](#starting-in-monitoring-mode)
+    -   [Auto Browser Refresh](#auto-browser-refresh)
+    -   [Full Development Mode](#full-development-mode)
+-   [GitHub Pages](#github-pages)
+-   [Running in Docker](#running-in-docker)
 
 ## Local Startup
 
