@@ -12,6 +12,21 @@ jobs:
       - 
         name: Checkout master branch
         uses: actions/checkout@v2
+      -
+        name: Read timestamp
+        id: timestamp
+        run: echo "::set-output name=timestamp::$(date +'%s')"
+      -
+        name: Create timestamp tag file
+        shell: bash
+        run: |
+          echo ${{ steps.timestamp.outputs.timestamp }} > tag.txt
+      -
+        name: Upload timestamp tag file
+        uses: actions/upload-artifact@v2
+        with:
+          name: timestampTag
+          path: tag.txt
       - 
         name: Set up QEMU
         uses: docker/setup-qemu-action@v1
@@ -31,7 +46,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: cruellays/http-cache:latest
+          tags: cruellays/http-cache:${{ steps.timestamp.outputs.timestamp }}
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
@@ -39,10 +54,22 @@ jobs:
     needs: publish
     runs-on: ubuntu-latest
     steps:
+      -
+        name: Download timestamp tag file
+        uses: actions/download-artifact@v2
+        with:
+          name: timestampTag
+      -
+        name: Read timestamp
+        id: timestamp
+        shell: bash
+        run: |
+          value=`cat tag.txt`
+          echo "::set-output name=timestamp::$value"
       - 
         name: Deploy to Azure Webapp
         uses: azure/webapps-deploy@v2
         with:
           app-name: http-cache
           publish-profile: ${{ secrets.HTTPCACHE_PUBLISH_PROFILE }}
-          images: cruellays/http-cache:latest
+          images: cruellays/http-cache:${{ steps.timestamp.outputs.timestamp }}
