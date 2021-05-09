@@ -1,4 +1,4 @@
-name: Build and push Docker images
+name: Publish and Deploy
 on:
   push:
     branches: [ master ]
@@ -6,7 +6,7 @@ on:
     branches: [ master ]
   workflow_dispatch:
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
     steps:
       - 
@@ -26,8 +26,23 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
         name: Build and push
+        id: docker_build
         uses: docker/build-push-action@v2
         with:
           context: .
           push: true
           tags: cruellays/http-cache:latest
+      -
+        name: Image digest
+        run: echo ${{ steps.docker_build.outputs.digest }}
+  deploy:
+    needs: publish
+    runs-on: ubuntu-latest
+    steps:
+      - 
+        name: Deploy to Azure Webapp
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: http-cache
+          publish-profile: ${{ secrets.HTTPCACHE_PUBLISH_PROFILE }}
+          images: cruellays/http-cache:latest
