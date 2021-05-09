@@ -11,13 +11,14 @@ html
     script.
       async function onSend() {
         let inputId = document.getElementsByName('data-id')[0].value;
-        let data = await getData(inputId);
+        let data = await getData('#{baseUrl}', inputId);
       }
   body
     div
       h1.banner HTTP-Cache
       div
         p A demo project WIP
+        p BaseUrl: #{baseUrl}
       div 
         span.label GET api/data/
         input(type='text' name='data-id' placeholder='Enter value')

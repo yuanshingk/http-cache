@@ -11,7 +11,7 @@
     <script>
       async function onSend() {
         let inputId = document.getElementsByName('data-id')[0].value;
-        let data = await getData(inputId);
+        let data = await getData('http://localhost:30001', inputId);
       }
     </script>
   </head>
@@ -20,6 +20,7 @@
       <h1 class="banner">HTTP-Cache</h1>
       <div>
         <p>A demo project WIP</p>
+        <p>BaseUrl: http://localhost:30001</p>
       </div>
       <div> <span class="label">GET api/data/</span>
         <input type="text" name="data-id" placeholder="Enter value">

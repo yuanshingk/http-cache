@@ -15,7 +15,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 app.get('/', (req, res) => {
-    res.render('index');
+    res.render('index', { baseUrl: `http://localhost:${port}` });
 });
 
 app.listen(port, () => {

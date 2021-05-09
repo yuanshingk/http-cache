@@ -4,7 +4,7 @@
 
 TODO: update description
 
-## Local Setup
+## Local Startup
 
 Clone this repository to your local drive:
 
@@ -18,18 +18,29 @@ Install all dependencies:
 $ npm install
 ```
 
-### Starting the Node Server
+Start the application:
+
+```
+$ npm run start
+```
+
+Browse to http://localhost:30001.
+
+## Local Development
+
+### Starting in Monitoring Mode
 
 This application uses [Express](https://expressjs.com/) as framework.
 Start application with **nodemon** using the following command:
 
 ```
-$ npm run serve
+$ npm run start-mon
 ```
 
-Application is serving at port `30001`. Browse to http://localhost:30001.
+Application is serving at port `30001`. Browse to http://localhost:30001. The debugging port is at `30002`.
+To attach debugger, simply debug with configuration `Attach Node Debugger` defined in `/.vscode/launch.json`.
 
-### Auto browser refresh
+### Auto Browser Refresh
 
 To enable auto refresh in browser, run the follow command:
 
@@ -37,34 +48,9 @@ To enable auto refresh in browser, run the follow command:
 $ npm run ui
 ```
 
-Auto browser refresh is serving at port `30002`. Browse to http://localhost:30002.
+Auto browser refresh is serving at port `30003`. Use http://localhost:30003 which will automatically refresh itself in the browser after changes are made in your code.
 
-### Pug
-
-This project uses [PugJs](https://pugjs.org/api/getting-started.html) as html templating engine. It is integrated with NodeJs Express as view engine.
-In addition to that, the ui pages are also designed to act like a SPA. A copy of the transformed static files are available in `/src/public` folder.
-
-Install [pug-cli](https://github.com/pugjs/pug-cli):
-
-```
-$ npm install pug-cli -g
-```
-
-To watch for changes on pug files during development and generate static html on the fly into `src/public` folder, run:
-
-```
-$ npm run pug-watch
-```
-
-### Docs
-
-To generate static html into `docs` folder for Github Pages, run before commiting code:
-
-```
-$ npm run docs-output
-```
-
-### Full development mode
+### Full Development Mode
 
 For best development experience, run:
 
@@ -72,4 +58,21 @@ For best development experience, run:
 $ npm run dev
 ```
 
-This will serve up the application, enable auto browser refresh, and also output static html to `public` folder on the fly.
+This will serve up the application in monitoring mode and enable auto browser refresh.
+
+## GitHub Pages
+
+This project uses [PugJs](https://pugjs.org/api/getting-started.html) as html templating engine. It is integrated with NodeJs Express as view engine.
+The static files it references are available in `/src/public` folder.
+
+Github pages is hosted under `/docs` folder. To generate the SPA static page, we need to install [pug-cli](https://github.com/pugjs/pug-cli):
+
+```
+$ npm install pug-cli -g
+```
+
+Run the following before commiting code:
+
+```
+$ npm run docs-output
+```

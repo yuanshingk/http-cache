@@ -8,7 +8,7 @@
             "type": "node",
             "request": "attach",
             "name": "Attach Node Debugger",
-            "port": 30003,
+            "port": 30002,
             "skipFiles": [
                 "<node_internals>/**"
             ]
