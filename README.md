@@ -1,6 +1,6 @@
 # http-cache
 
-Github page: https://yuanshingk.github.io/http-cache/
+Link: https://rotf.lol/http-cache
 
 ![Publish and Deploy](https://github.com/yuanshingk/http-cache/actions/workflows/main.yml/badge.svg)
 
@@ -70,23 +70,6 @@ $ npm run dev
 
 This will serve up the application in monitoring mode and enable auto browser refresh.
 
-## GitHub Pages
-
-This project uses [PugJs](https://pugjs.org/api/getting-started.html) as html templating engine. It is integrated with NodeJs Express as view engine.
-The static files it references are available in `/src/public` folder.
-
-Github pages is hosted under `/docs` folder. To generate the SPA static page, we need to install [pug-cli](https://github.com/pugjs/pug-cli):
-
-```
-$ npm install pug-cli -g
-```
-
-Run the following before commiting code:
-
-```
-$ npm run docs-output
-```
-
 ## Running in Docker
 
 You can choose to run this application using docker.
@@ -103,3 +86,22 @@ $ docker run -it -p 8080:8080 http-cache
 ```
 
 Browse to http://localhost:8080.
+
+## GitHub Pages [OBSOLETE]
+
+<span style="background-color: #FFFF00; color: #FF0000">No longer hosting this on GitHub pages. `/docs` folder is removed from repo.</span>
+
+This project uses [PugJs](https://pugjs.org/api/getting-started.html) as html templating engine. It is integrated with NodeJs Express as view engine.
+The static files it references are available in `/src/public` folder.
+
+Github pages is hosted under `/docs` folder. To generate the SPA static page, we need to install [pug-cli](https://github.com/pugjs/pug-cli):
+
+```
+$ npm install pug-cli -g
+```
+
+Run the following before commiting code:
+
+```
+$ npm run docs-output
+```
