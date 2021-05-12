@@ -47,7 +47,9 @@ jobs:
           context: .
           push: true
           tags: cruellays/http-cache:${{ steps.timestamp.outputs.timestamp }}
-          build-args: PORT=8080,BASEURL=`https://http-cache.azurewebsites.net`
+          build-args: |
+            PORT=8080
+            BASEURL=https://http-cache.azurewebsites.net
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
