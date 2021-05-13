@@ -57,6 +57,9 @@ jobs:
     needs: publish
     runs-on: ubuntu-latest
     steps:
+      - 
+        name: Checkout master branch
+        uses: actions/checkout@v2
       -
         name: Download timestamp tag file
         uses: actions/download-artifact@v2
@@ -77,10 +80,9 @@ jobs:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
           image: cruellays/http-cache:${{ steps.timestamp.outputs.timestamp }}
-          json: true
-      - uses: garethr/snyk-to-sarif@master
-      -
-        name: Upload scan result to GitHub
+          args: --file=Dockerfile
+      - 
+        name: Upload result to GitHub Code Scanning
         uses: github/codeql-action/upload-sarif@v1
         with:
           sarif_file: snyk.sarif
