@@ -76,7 +76,6 @@ jobs:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
           image: cruellays/http-cache:${{ steps.timestamp.outputs.timestamp }}
-          args: --file=Dockerfile
       -
         name: Upload scan result to GitHub
         uses: github/codeql-action/upload-sarif@v1
